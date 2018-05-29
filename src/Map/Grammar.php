@@ -305,6 +305,39 @@ class Grammar
     }
 
     /**
+     * Compile a text map.
+     *
+     * @param Fluent $fluent
+     *
+     * @return array
+     */
+    public function compileText(Fluent $fluent)
+    {
+        $map = [
+            'type'                   => 'text',
+            'analyzer'               => $fluent->analyzer,
+            'boost'                  => $fluent->boost,
+            'doc_values'             => $fluent->doc_values,
+            'fielddata'              => $fluent->fielddata,
+            'fields'                 => $fluent->fields,
+            'ignore_above'           => $fluent->ignore_above,
+            'include_in_all'         => $fluent->include_in_all,
+            'index'                  => $fluent->index,
+            'index_options'          => $fluent->index_options,
+            'norms'                  => $fluent->norms,
+            'position_increment_gap' => $fluent->position_increment_gap,
+            'store'                  => $fluent->store,
+            'search_analyzer'        => $fluent->search_analyzer,
+            'search_quote_analyzer'  => $fluent->search_quote_analyzer,
+            'similarity'             => $fluent->similarity,
+            'term_vector'            => $fluent->term_vector,
+            'copy_to'                => $fluent->copy_to,
+        ];
+
+        return $this->formatMap($map);
+    }
+
+    /**
      * Compile a numeric map.
      *
      * @param Fluent $fluent
